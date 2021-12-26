@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.application.recource.DeleteResponse;
+import com.example.demo.application.recource.GetRecipeByIdResponse;
 import com.example.demo.application.recource.GetRecipeResponse;
 import com.example.demo.application.recource.PatchRecipeBody;
 import com.example.demo.application.recource.PatchRecipeModel;
@@ -61,7 +62,7 @@ public class RecipeController {
 		List<RecipeModel> recipeList = new ArrayList<RecipeModel>();
 		recipeList.add(recipe);
 
-		return new ResponseEntity<>(new PostRecipeResponce("Recipe Successfully Created!",recipeList), new HttpHeaders(), HttpStatus.OK);
+		return new ResponseEntity<>(new PostRecipeResponce("Recipe successfully created!",recipeList), new HttpHeaders(), HttpStatus.OK);
 
 	}
 
@@ -82,7 +83,7 @@ public class RecipeController {
 
 		List<Recipe> recipe = recipeService.getRecipeById(id);
 
-		return new ResponseEntity<>(new GetRecipeResponse(recipe), new HttpHeaders(), HttpStatus.OK);
+		return new ResponseEntity<>(new GetRecipeByIdResponse("Recipe details by id",recipe), new HttpHeaders(), HttpStatus.OK);
 
 	}
 
