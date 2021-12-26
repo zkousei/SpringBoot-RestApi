@@ -48,7 +48,7 @@ public class RecipeController {
 		// バリデーションエラーの場合エラーレスポンス
 		if (result.hasErrors()) {
 			log.error(result.toString());
-			return new ResponseEntity<>(new PostRecipeErrorResponse("Recipe creation failed!", result.toString()),new HttpHeaders(), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(new PostRecipeErrorResponse("Recipe creation failed!", result.toString()),new HttpHeaders(), HttpStatus.OK);
 		}
 
 		Timestamp now = new Timestamp(System.currentTimeMillis());
